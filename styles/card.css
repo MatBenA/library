@@ -1,0 +1,85 @@
+:root {
+    --card: #f2dcb1;
+
+    --btn-grn: #76f374;
+    --btn-grn-hver: #39ff35;
+    --btn-grn-clck: #23b120;
+
+    --btn-red: #ff8989;
+    --btn-red-hver: #ff4747;
+    --btn-red-clck: #b02525;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h3,
+p {
+    margin: 0;
+}
+
+h3 {
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.library {
+    padding: 2rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.book-card {
+    width: 245px;
+    min-height: 250px;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: var(--card);
+
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-between;
+}
+
+.book-card > div {
+    font-weight: 500;
+}
+
+.book-card > button {
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    padding: 4px;
+    box-shadow: 0 4px 4px rgb(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+
+.completed {
+    background-color: var(--btn-grn);
+}
+
+.completed:hover {
+    background-color: var(--btn-grn-hver);
+}
+
+.completed:active {
+    background-color: var(--btn-grn-clck);
+}
+
+.remove {
+    background-color: var(--btn-red);
+}
+
+.remove:hover {
+    background-color: var(--btn-red-hver);
+}
+
+.remove:active {
+    background-color: var(--btn-red-clck);
+}
