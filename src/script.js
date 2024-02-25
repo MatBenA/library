@@ -4,7 +4,7 @@ myLibrary.push(new Books("1984", "George Orwell", 328, false));
 
 console.log(myLibrary);
 
-displayLibrary();
+displayBook();
 
 function Books(title, author, pages, isRead) {
     this.title = title;
@@ -23,12 +23,18 @@ function addBookToLibrary(book) {
     myLibrary.push(book);
 }
 
-function displayLibrary() {
+function displayLibrary() {}
+
+function displayBook() {
     const myBook = myLibrary[0];
+    
     const library = document.querySelector("section");
-    const bookCard = document.createElement("div")
+    
+    const bookCard = document.createElement("div");
     library.appendChild(bookCard);
     bookCard.setAttribute("class", "book-card");
+
+    
 }
 
 //const Book1 = new Books("1984", "George Orwell", 328, false);
