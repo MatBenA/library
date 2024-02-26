@@ -2,6 +2,9 @@
 const myLibrary = [];
 
 myLibrary.push(new Books("1984", "George Orwell", 328, false));
+myLibrary.push(new Books("El Imperio Final", "Brandon Sanderson", 688, false));
+
+displayLibrary(myLibrary);
 
 function Books(title, author, pages, isRead) {
     this.title = title;
@@ -14,29 +17,31 @@ function addBookToLibrary(book) {
     myLibrary.push(book);
 }
 
-//TODO loops through the array and displays each book on the page
-function displayLibrary() {}
+//loops through the array and displays each book on the page
+function displayLibrary(myLibrary) {
+    myLibrary.forEach((book) => {
+        displayBook(book);
+    });
+}
 
-//TODO function that renders a single book
-function displayBook() {}
+//function that renders a single book
+function displayBook({ title, author, pages, isRead }) {
+    const library = document.querySelector(".library");
+    const card = displayElement(library, "div", "", "book-card");
+    displayElement(card, "h3", title);
+    displayElement(card, "div", `Author: ${author}`);
+    displayElement(card, "div", `Pages: ${pages}`);
+    displayElement(card, "button", "Completed", "completed");
+    displayElement(card, "button", "Remove", "remove");
+}
 
 /*  
     TODO Add a “NEW BOOK” button that brings up a form allowing 
     users to input the details for the new book: author, title, 
     number of pages, whether it’s been read 
-*/
+    */
 
-const library = document.querySelector(".library");
-const card = document.createElement("div");
-library.appendChild(card);
-card.setAttribute("class", "book-card");
-
-displayElement(card, "h3", "1984");
-displayElement(card, "div", "George Orwell");
-displayElement(card, "div", 328);
-displayElement(card, "button", "Completed", "completed");
-displayElement(card, "button", "Remove", "remove");
-
+//creates an html element given its parent, tag, text and class, return created element
 function displayElement(parent, tagName, innerText, className) {
     const element = document.createElement(`${tagName}`);
     parent.appendChild(element);
