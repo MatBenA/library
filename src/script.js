@@ -31,35 +31,13 @@ const card = document.createElement("div");
 library.appendChild(card);
 card.setAttribute("class", "book-card");
 
-displayElement(".book-card", "h3", "1984");
-/* const title = document.createElement("h3");
-title.innerText = "1984";
-card.appendChild(title); */
+displayElement(card, "h3", "1984");
+displayElement(card, "div", "George Orwell");
+displayElement(card, "div", 328);
+displayElement(card, "button", "Completed", "completed");
+displayElement(card, "button", "Remove", "remove");
 
-displayElement(".book-card", "div", "George Orwell");
-/* const author = document.createElement("div");
-author.innerText = "George Orwell";
-card.appendChild(author); */
-
-displayElement(".book-card", "div", 328);
-/* const pages = document.createElement("div");
-pages.innerText = 328;
-card.appendChild(pages); */
-
-displayElement(".book-card", "button", "Completed", "completed");
-/* const isread = document.createElement("button");
-isread.innerText = "Completed";
-card.appendChild(isread);
-isread.setAttribute("class", "completed"); */
-
-displayElement(".book-card", "button", "Remove", "remove")
-/* const remove = document.createElement("button");
-card.appendChild(remove);
-remove.setAttribute("class", "remove");
-remove.innerText = "Remove"; */
-
-function displayElement(parentSelector, tagName, innerText, className) {
-    const parent = document.querySelector(`${parentSelector}`);
+function displayElement(parent, tagName, innerText, className) {
     const element = document.createElement(`${tagName}`);
     parent.appendChild(element);
     className && element.setAttribute("class", `${className}`);
