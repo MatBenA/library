@@ -42,4 +42,5 @@ function displayElement(parent, tagName, innerText, className) {
     parent.appendChild(element);
     className && element.setAttribute("class", `${className}`);
     innerText && (element.innerText = `${innerText}`);
+    return element;
 }
