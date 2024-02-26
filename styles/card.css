@@ -2,7 +2,7 @@
     --card: #f2dcb1;
 
     --btn-grn: #76f374;
-    --btn-grn-hver: #39ff35;
+    --btn-grn-hver: #04ff00;
     --btn-grn-clck: #23b120;
 
     --btn-red: #ff8989;
@@ -65,6 +65,7 @@ h3 {
 
 .completed {
     background-color: var(--btn-grn);
+    transition: background-color 0.3s;
 }
 
 .completed:hover {
@@ -77,6 +78,7 @@ h3 {
 
 .remove {
     background-color: var(--btn-red);
+    transition: background-color 0.2s;
 }
 
 .remove:hover {

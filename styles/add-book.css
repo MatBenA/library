@@ -1,0 +1,12 @@
+img {
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    margin-left: 2rem;
+    margin-top: 1rem;
+    transition: transform 0.7s;
+}
+
+img:hover {
+    transform: rotate(90deg) scale(1.2);
+}

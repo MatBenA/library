@@ -3,6 +3,9 @@ const myLibrary = [];
 
 myLibrary.push(new Books("1984", "George Orwell", 328, false));
 myLibrary.push(new Books("El Imperio Final", "Brandon Sanderson", 688, false));
+myLibrary.push(
+    new Books("El Gato en Ojotas", "Verónica Álvarez Rivera", 24, false)
+);
 
 displayLibrary(myLibrary);
 
@@ -35,12 +38,6 @@ function displayBook({ title, author, pages, isRead }) {
     displayElement(card, "button", "Remove", "remove");
 }
 
-/*  
-    TODO Add a “NEW BOOK” button that brings up a form allowing 
-    users to input the details for the new book: author, title, 
-    number of pages, whether it’s been read 
-    */
-
 //creates an html element given its parent, tag, text and class, return created element
 function displayElement(parent, tagName, innerText, className) {
     const element = document.createElement(`${tagName}`);
@@ -49,3 +46,10 @@ function displayElement(parent, tagName, innerText, className) {
     innerText && (element.innerText = `${innerText}`);
     return element;
 }
+
+/*  
+    TODO Add a “NEW BOOK” button that brings up a form allowing 
+    users to input the details for the new book: author, title, 
+    number of pages, whether it’s been read 
+*/
+
