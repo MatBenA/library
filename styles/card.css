@@ -97,6 +97,11 @@ button {
     background-color: var(--btn-red-clck);
 }
 
+.on-read-btn{
+    background-color: orange;
+    transition: background-color 0.3s;
+}
+
 /* MODAL STYLES */
 
 :modal {
@@ -178,3 +183,6 @@ input[type="checkbox"]::before {
 input[type="checkbox"]:checked::before {
     transform: scale(1);
 }
+
+
+/* TODO create transition for MODAL appearing and dissappearing */

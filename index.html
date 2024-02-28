@@ -24,7 +24,7 @@
     <body>
         <img src="./assets/plus-icon.svg" alt="" class="add-icon" />
         <dialog id="dialog">
-            <form action="">
+            <form name="add-book">
                 <h3>Add New Book</h3>
                 <p>
                     <label for="title">Title </label>
@@ -43,10 +43,12 @@
                     <input id="isread" name="isread" type="checkbox" />
                 </p>
 
-                <button type="submit" class="green-btn">Submit</button>
-                <button class="red-btn">Cancel</button>
+                <button value="default" id="confirm-btn" class="green-btn">Submit</button>
+                <button value="cancel" formmethod="dialog" class="red-btn">Cancel</button>
             </form>
         </dialog>
-        <section class="library"></section>
+        <div class="library-container">
+            <section class="library"></section>
+        </div>
     </body>
 </html>

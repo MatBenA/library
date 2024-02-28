@@ -1,3 +1,4 @@
+//TODO add functionality to the remove card button
 //Books storage
 const myLibrary = [];
 
@@ -9,6 +10,7 @@ myLibrary.push(
 
 displayLibrary(myLibrary);
 
+//TODO refactor functions to methods
 function Books(title, author, pages, isRead) {
     this.title = title;
     this.author = author;
@@ -16,14 +18,15 @@ function Books(title, author, pages, isRead) {
     this.isRead = isRead;
 }
 
-function addBookToLibrary(book) {
-    myLibrary.push(book);
+//TODO make card button toggle between Completed and On Read States
+Books.prototype.toggleRead = () => {
+
 }
 
 //loops through the array and displays each book on the page
 function displayLibrary(myLibrary) {
     myLibrary.forEach((book) => {
-        displayBook(book);
+        displayBook(book); //book.display(); refactor
     });
 }
 
@@ -47,15 +50,38 @@ function displayElement(parent, tagName, innerText, className) {
     return element;
 }
 
-/*  
-    TODO Add a “NEW BOOK” button that brings up a form allowing 
-    users to input the details for the new book: author, title, 
-    number of pages, whether it’s been read 
-*/
 
+//Modal Management
 const showBtn = document.querySelector(".add-icon");
 const dialog = document.getElementById("dialog");
 
 showBtn.addEventListener("click", () => {
     dialog.showModal();
 });
+
+//Add new Book to library
+const confirmBtn = document.getElementById("confirm-btn");
+confirmBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    const { title, author, pages, isread } = document.forms["add-book"];
+    addBookToLibrary(
+        new Books(title.value, author.value, pages.value, isread.value)
+    );
+
+    reRenderLibrary();
+    dialog.close();
+});
+
+function addBookToLibrary(book) {
+    myLibrary.push(book);
+}
+
+//Removes library DOM element, creates it again and displays updated library
+function reRenderLibrary() {
+    document.querySelector(".library").remove();
+    const container = document.querySelector(".library-container");
+    const library = document.createElement("section");
+    library.setAttribute("class", "library");
+    container.appendChild(library);
+    displayLibrary(myLibrary);
+}
