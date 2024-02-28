@@ -34,8 +34,8 @@ function displayBook({ title, author, pages, isRead }) {
     displayElement(card, "h3", title);
     displayElement(card, "div", `Author: ${author}`);
     displayElement(card, "div", `Pages: ${pages}`);
-    displayElement(card, "button", "Completed", "completed");
-    displayElement(card, "button", "Remove", "remove");
+    displayElement(card, "button", "Completed", "green-btn");
+    displayElement(card, "button", "Remove", "red-btn");
 }
 
 //creates an html element given its parent, tag, text and class, return created element
@@ -53,3 +53,9 @@ function displayElement(parent, tagName, innerText, className) {
     number of pages, whether it’s been read 
 */
 
+const showBtn = document.querySelector(".add-icon");
+const dialog = document.getElementById("dialog");
+
+showBtn.addEventListener("click", () => {
+    dialog.showModal();
+});

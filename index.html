@@ -7,9 +7,14 @@
         <link rel="stylesheet" href="./styles/card.css" />
         <link rel="stylesheet" href="./styles/normalize.css" />
         <link rel="stylesheet" href="./styles/add-book.css" />
+        <link rel="stylesheet" href="./styles/modal.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link rel="icon" href="./assets/brown-book.png" type="image/icon type" />
+        <link
+            rel="icon"
+            href="./assets/brown-book.png"
+            type="image/icon type"
+        />
         <link
             href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
             rel="stylesheet"
@@ -18,14 +23,30 @@
     </head>
     <body>
         <img src="./assets/plus-icon.svg" alt="" class="add-icon" />
-        <section class="library">
-            <!--             <div class="book-card">
-                <h3>El Imperio Final</h3>
-                <div>Author: Brandon Sanderson</div>
-                <div>Pages: 688</div>
-                <button class="completed">Completed</button>
-                <button class="remove">Remove</button>
-            </div> -->
-        </section>
+        <dialog id="dialog">
+            <form action="">
+                <h3>Add New Book</h3>
+                <p>
+                    <label for="title">Title </label>
+                    <input id="title" name="title" type="text" autofocus />
+                </p>
+                <p>
+                    <label for="author">Author </label>
+                    <input id="author" name="author" type="text" />
+                </p>
+                <p>
+                    <label for="pages">Pages </label>
+                    <input id="pages" name="pages" type="text" />
+                </p>
+                <p>
+                    <label for="isread">Have you read it?</label>
+                    <input id="isread" name="isread" type="checkbox" />
+                </p>
+
+                <button type="submit" class="green-btn">Submit</button>
+                <button class="red-btn">Cancel</button>
+            </form>
+        </dialog>
+        <section class="library"></section>
     </body>
 </html>
