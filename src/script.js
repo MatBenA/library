@@ -105,11 +105,13 @@ confirmBtn.addEventListener("click", (e) => {
 //Cancel Modal
 document
     .querySelector("button[value='cancel']")
-    .addEventListener("click", () => {
+    .addEventListener("click", (e) => {
+        e.preventDefault();
         dialog.close();
         document.querySelector("form").reset();
     });
 
+//add book
 function addBookToLibrary(book) {
     myLibrary.push(book);
 }
