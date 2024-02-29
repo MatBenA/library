@@ -43,15 +43,21 @@ function displayLibrary(myLibrary) {
 
 //function that renders a single book
 function displayBook(book, index) {
+    let toggleBtn;
     const { title, author, pages, isRead } = book;
     const library = document.querySelector(".library");
     const card = displayElement(library, "div", "", "book-card");
     displayElement(card, "h3", title);
     displayElement(card, "div", `Author: ${author}`);
     displayElement(card, "div", `Pages: ${pages}`);
-    const toggleBtn = displayElement(card, "button", "Completed", "green-btn");
-    displayElement(card, "button", "Remove", "red-btn remove", index);
 
+    if (isRead) {
+        toggleBtn = displayElement(card, "button", "Completed", "green-btn");
+    } else {
+        toggleBtn = displayElement(card, "button", "On Read", "orange-btn");
+    }
+
+    displayElement(card, "button", "Remove", "red-btn remove", index);
     setToggleBtn(toggleBtn, book);
 }
 
@@ -122,6 +128,12 @@ function setRemoveBtn(button, index) {
 function setToggleBtn(button, book) {
     button.addEventListener("click", () => {
         book.toggleRead();
-        button.setAttribute("class", book.isRead ? "green-btn" : "orange-btn");
+        if (book.isRead) {
+            button.setAttribute("class", "green-btn");
+            button.innerText = "Completed";
+        } else {
+            button.setAttribute("class", "orange-btn");
+            button.innerText = "On Read";
+        }
     });
 }
