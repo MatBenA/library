@@ -89,14 +89,26 @@ showBtn.addEventListener("click", () => {
 const confirmBtn = document.getElementById("confirm-btn");
 confirmBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    const { title, author, pages, isread } = document.forms["add-book"];
-    addBookToLibrary(
-        new Book(title.value, author.value, pages.value, isread.checked)
-    );
 
-    reRenderLibrary();
-    dialog.close();
+    if (document.querySelector("form").reportValidity()) {
+        const { title, author, pages, isread } = document.forms["add-book"];
+        addBookToLibrary(
+            new Book(title.value, author.value, pages.value, isread.checked)
+        );
+
+        reRenderLibrary();
+        dialog.close();
+        document.querySelector("form").reset();
+    }
 });
+
+//Cancel Modal
+document
+    .querySelector("button[value='cancel']")
+    .addEventListener("click", () => {
+        dialog.close();
+        document.querySelector("form").reset();
+    });
 
 function addBookToLibrary(book) {
     myLibrary.push(book);

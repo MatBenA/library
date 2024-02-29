@@ -28,23 +28,49 @@
                 <h3>Add New Book</h3>
                 <p>
                     <label for="title">Title </label>
-                    <input id="title" name="title" type="text" autofocus required/>
+                    <input
+                        id="title"
+                        name="title"
+                        type="text"
+                        autofocus
+                        required
+                    />
                 </p>
                 <p>
                     <label for="author">Author </label>
-                    <input id="author" name="author" type="text" required/>
+                    <input id="author" name="author" type="text" required />
                 </p>
                 <p>
                     <label for="pages">Pages </label>
-                    <input id="pages" name="pages" type="text" pattern="[0-9]" required/>
+                    <input
+                        id="pages"
+                        name="pages"
+                        type="text"
+                        pattern="\/d+\"
+                        required
+                    />
                 </p>
                 <p>
                     <label for="isread">Have you read it?</label>
                     <input id="isread" name="isread" type="checkbox" />
                 </p>
 
-                <button value="default" id="confirm-btn" class="green-btn">Submit</button>
-                <button value="cancel" formmethod="dialog" class="red-btn">Cancel</button>
+                <button
+                    type="submit"
+                    value="default"
+                    id="confirm-btn"
+                    class="green-btn"
+                >
+                    Submit
+                </button>
+                <button
+                    
+                    value="cancel"
+                    formmethod="dialog"
+                    class="red-btn"
+                >
+                    Cancel
+                </button>
             </form>
         </dialog>
         <div class="library-container">
