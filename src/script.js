@@ -2,8 +2,8 @@
 //Books storage
 let myLibrary = [];
 
-myLibrary.push(new Book("1984", "George Orwell", 328, false));
-myLibrary.push(new Book("El Imperio Final", "Brandon Sanderson", 688, false));
+myLibrary.push(new Book("1984", "George Orwell", 328, true));
+myLibrary.push(new Book("El Imperio Final", "Brandon Sanderson", 688, true));
 myLibrary.push(
     new Book("El Gato en Ojotas", "Verónica Álvarez Rivera", 24, false)
 );

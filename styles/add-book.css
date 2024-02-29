@@ -1,12 +1,18 @@
-img {
+.add-icon {
     width: 60px;
     height: 60px;
     cursor: pointer;
-    margin-left: 2rem;
-    margin-top: 1rem;
+
     transition: transform 0.6s;
 }
 
-img:hover {
+.add-icon:hover {
     transform: rotate(90deg) scale(1.2);
+}
+
+/* Add book card sticky icon */
+.add-icon {
+    position: fixed;
+    top: 65px;
+    left: 25px;
 }
