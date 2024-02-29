@@ -1,25 +1,38 @@
-//TODO add functionality to the remove card button
+//TODO Clear data from modal after canceling or submitting a new card
 //Books storage
 let myLibrary = [];
 
-myLibrary.push(new Books("1984", "George Orwell", 328, false));
-myLibrary.push(new Books("El Imperio Final", "Brandon Sanderson", 688, false));
+myLibrary.push(new Book("1984", "George Orwell", 328, false));
+myLibrary.push(new Book("El Imperio Final", "Brandon Sanderson", 688, false));
 myLibrary.push(
-    new Books("El Gato en Ojotas", "Verónica Álvarez Rivera", 24, false)
+    new Book("El Gato en Ojotas", "Verónica Álvarez Rivera", 24, false)
 );
 
 displayLibrary(myLibrary);
 
 //TODO refactor functions to methods
-function Books(title, author, pages, isRead) {
+function Book(title, author, pages, isRead) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.isRead = isRead;
 }
 
-//TODO make card button toggle between Completed and On Read States
-Books.prototype.toggleRead = () => {};
+/* 
+primer render
+	->Asignar a cada botón evento de cambio de estado
+
+Botón Click
+	->Disparar cambio de estado, cambiar class e innerText
+
+re render
+	->Reasignar eventos de cambio de estado manteniendo el estado anterior
+*/
+
+//modificar objeto Book.isRead = true/false
+Book.prototype.toggleRead = function () {
+    this.isRead = !this.isRead;
+};
 
 //loops through the array and displays each book on the page
 function displayLibrary(myLibrary) {
@@ -29,24 +42,29 @@ function displayLibrary(myLibrary) {
 }
 
 //function that renders a single book
-function displayBook({ title, author, pages, isRead }, index) {
+function displayBook(book, index) {
+    const { title, author, pages, isRead } = book;
     const library = document.querySelector(".library");
     const card = displayElement(library, "div", "", "book-card");
     displayElement(card, "h3", title);
     displayElement(card, "div", `Author: ${author}`);
     displayElement(card, "div", `Pages: ${pages}`);
-    displayElement(card, "button", "Completed", "green-btn");
+    const toggleBtn = displayElement(card, "button", "Completed", "green-btn");
     displayElement(card, "button", "Remove", "red-btn remove", index);
+
+    setToggleBtn(toggleBtn, book);
 }
 
 //creates an html element given its parent, tag, text and class, return created element
+//TODO Maintain state of On Read and Completed Buttons between
+//renders, innerText and className will be different
 function displayElement(parent, tagName, innerText, className, index) {
     const element = document.createElement(`${tagName}`);
     parent.appendChild(element);
     className && element.setAttribute("class", `${className}`);
     innerText && (element.innerText = `${innerText}`);
 
-    
+    //if the element is a remove button
     if (innerText === "Remove") {
         setRemoveBtn(element, index);
     }
@@ -67,7 +85,7 @@ confirmBtn.addEventListener("click", (e) => {
     e.preventDefault();
     const { title, author, pages, isread } = document.forms["add-book"];
     addBookToLibrary(
-        new Books(title.value, author.value, pages.value, isread.value)
+        new Book(title.value, author.value, pages.value, Boolean(isread.value))
     );
 
     reRenderLibrary();
@@ -97,5 +115,13 @@ function setRemoveBtn(button, index) {
             (book, index) => index !== parseInt(target.dataset.index)
         );
         reRenderLibrary();
+    });
+}
+
+//add toggle event to button - on read / completed
+function setToggleBtn(button, book) {
+    button.addEventListener("click", () => {
+        book.toggleRead();
+        button.setAttribute("class", book.isRead ? "green-btn" : "orange-btn");
     });
 }
