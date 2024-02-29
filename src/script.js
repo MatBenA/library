@@ -91,7 +91,7 @@ confirmBtn.addEventListener("click", (e) => {
     e.preventDefault();
     const { title, author, pages, isread } = document.forms["add-book"];
     addBookToLibrary(
-        new Book(title.value, author.value, pages.value, Boolean(isread.value))
+        new Book(title.value, author.value, pages.value, isread.checked)
     );
 
     reRenderLibrary();

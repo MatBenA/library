@@ -28,15 +28,15 @@
                 <h3>Add New Book</h3>
                 <p>
                     <label for="title">Title </label>
-                    <input id="title" name="title" type="text" autofocus />
+                    <input id="title" name="title" type="text" autofocus required/>
                 </p>
                 <p>
                     <label for="author">Author </label>
-                    <input id="author" name="author" type="text" />
+                    <input id="author" name="author" type="text" required/>
                 </p>
                 <p>
                     <label for="pages">Pages </label>
-                    <input id="pages" name="pages" type="text" />
+                    <input id="pages" name="pages" type="text" pattern="[0-9]" required/>
                 </p>
                 <p>
                     <label for="isread">Have you read it?</label>
